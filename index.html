@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxiCostCounter</title>
+
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <td>Jenis Taxi</td>
+            <td>
+                <select name="jenisTaksi" id="jenisTaksi">
+                    <option value="biru">biru</option>
+                    <option value="silver">silver</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Jarak</td>
+            <td><input type="number" name="jarak" id="jarak"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="count()">Hitung</button></td>
+        </tr>
+    </table>
+    
+    <div id="tempatHasil">
+            
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
