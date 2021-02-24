@@ -6,31 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaxiCostCounter</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
 <body>
-    
-    <table>
-        <tr>
-            <td>Jenis Taxi</td>
-            <td>
-                <select name="jenisTaksi" id="jenisTaksi">
-                    <option value="biru">biru</option>
-                    <option value="silver">silver</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Jarak</td>
-            <td><input type="number" name="jarak" id="jarak"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><button onclick="count()">Hitung</button></td>
-        </tr>
-    </table>
-    
-    <div id="tempatHasil">
-            
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="jenisTaksi">Jenis Taksi</label>
+                    </div>
+                    <div class="col">
+                        <select name="jenisTaksi" id="jenisTaksi" class="form-select">
+                            <option value="">pilih taxi ---</option>
+                            <option value="biru">biru</option>
+                            <option value="silver">silver</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="jarak">Jarak</label>
+                    </div>
+                    <div class="col">
+                        <input type="number" name="jarak" id="jarak" class="form-control" placeholder="Dalam kilometer">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-grid">
+                        <button onclick="count()" class="btn btn-primary">Hitung</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-2"></div>
+            <div class="col-8" id="tempatHasil"></div>
+            <div class="col-2"></div>
+        </div>
     </div>
+    
 
     <script src="script.js"></script>
 

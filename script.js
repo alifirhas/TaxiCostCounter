@@ -6,62 +6,54 @@ function count() {
 
   switch (pilihTaksi) {
     case "biru":
-        biaya = blueCounter(jarak);
-    break;
+      biaya = blueCounter(jarak);
+      break;
 
     case "silver":
-        biaya = silverCounter(jarak);
+      biaya = silverCounter(jarak);
       break;
 
     default:
+      biaya = "pilih taxi dulu";
       break;
   }
-
-  document.getElementById("tempatHasil").innerHTML = "total biayanya adalah Rp"+biaya;
+  var text = "";
+  text += "Dengan taksi " + pilihTaksi + " <br>";
+  text += "Biaya menempuh jarak " + jarak + " KM <br>";
+  text += "total biayanya yang harus dibayarkan adalah Rp " + biaya;
+  document.getElementById("tempatHasil").innerHTML = text;
 }
 
-function blueCounter(jarak) {
-  jarak = jarak * 1000;
-
-  meter = 0;
-  totalBiaya = 0;
-
-  while (meter <= jarak) {
-    if (meter <= 100) {
-      totalBiaya = 100;
-    }
-    if (meter > 100 && meter <= 500) {
-      totalBiaya = totalBiaya + 50;
-    }
-    if (meter > 500) {
-      totalBiaya = totalBiaya + 10;
-    }
-
-    meter = meter + 100;
+function blueCounter(distance) {
+  distance = distance * 1000;
+  let totalCost = 0;
+  if (distance > 500) {
+    totalCost += (distance - 500) * 10;
+    distance = 500;
   }
+  if (distance > 100) {
+    totalCost += (distance - 100) * 50;
+    distance = 100;
+  }
+  if(distance>0)
+   totalCost += distance * 100;
 
-  return totalBiaya;
+  return totalCost;
 }
 
-function silverCounter(jarak) {
-    jarak = jarak * 1000;
-  
-    meter = 0;
-    totalBiaya = 0;
-  
-    while (meter <= jarak) {
-      if (meter <= 250) {
-        totalBiaya = 100;
-      }
-      if (meter > 250 && meter <= 1000) {
-        totalBiaya = totalBiaya + 75;
-      }
-      if (meter > 1000) {
-        totalBiaya = totalBiaya + 25;
-      }
-  
-      meter = meter + 250;
-    }
-  
-    return totalBiaya;
+function silverCounter(distance) {
+  distance = distance * 1000;
+  let totalCost = 0;
+  if (distance > 1000) {
+    totalCost += (distance - 1000) * 25;
+    distance = 1000;
   }
+  if (distance > 250) {
+    totalCost += (distance - 100) * 75;
+    distance = 100;
+  }
+  if(distance>0)
+   totalCost += distance * 100;
+
+  return totalCost;
+}
